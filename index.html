@@ -2,52 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter Components Demo</title>
-    
-    <!-- Load semua komponen -->
     <script src="counter-display.js"></script>
     <script src="counter-controls.js"></script>
     <script src="combined-counter.js"></script>
     <script src="counter-display-b.js"></script>
     <script src="counter-controls-b.js"></script>
 </head>
-<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:20px; margin-top:30px;">
-    
-    <!-- GANTI INI DENGAN NAMA DAN NIM KAMU! -->
-    <div style="text-align: center; margin-bottom: 20px; border: 2px solid #333; padding: 15px; background-color: #f0f0f0;">
-        <h3>Nama: [ANNISA SALSABILA SANTIAJI]</h3>
-        <h3>NIM: [23/514506/PA/21990]</h3>
+<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:30px;">
+
+    <!-- NAMA DAN NIM -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h3>Nama: [ISI NAMA KAMU]</h3>
+        <h3>NIM: [ISI NIM KAMU]</h3>
     </div>
-    
-    <h1>Web Components Demo</h1>
-    
-    <!-- Komponen 1 & 2 (Event-based) -->
-    <h2>Komponen 1 & 2 (Event Communication)</h2>
-    <counter-display id="display" title="Counter Komponen 1" value="99"></counter-display>
+
+    <!-- Komponen 1 & 2 -->
+    <counter-display id="display" title="Lorem Ipsum Title" value="99"></counter-display>
     <counter-controls id="controls"></counter-controls>
-    
+
     <script>
         const display = document.getElementById('display');
         const controls = document.getElementById('controls');
-        
         controls.addEventListener('count-change', e => {
             display.count += e.detail.delta;
         });
     </script>
-    
-    <hr style="width: 80%; margin: 20px 0;">
-    
-    <!-- Komponen 3 (Combined) -->
-    <h2>Komponen 3 (Combined Counter)</h2>
-    <combined-counter title="Combined Counter" value="50"></combined-counter>
-    
-    <hr style="width: 80%; margin: 20px 0;">
-    
-    <!-- Varian B (Target-based) -->
-    <h2>Varian B (Target-based Communication)</h2>
+
+    <!-- Komponen 3 -->
+    <combined-counter title="Lorem Ipsum Title" value="99"></combined-counter>
+
+    <!-- Varian B -->
     <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
     <counter-controls-b target="displayB"></counter-controls-b>
-    
+
 </body>
 </html>
