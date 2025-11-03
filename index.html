@@ -3,44 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Counter Components Demo</title>
-    <script src="counter-display.js"></script>
-    <script src="counter-controls.js"></script>
-    <script src="combined-counter.js"></script>
-    <script src="counter-display-b.js"></script>
-    <script src="counter-controls-b.js"></script>
 </head>
 <body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:30px;">
 
-    <!-- NAMA DAN NIM - GANTI INI! -->
+    <!-- NAMA DAN NIM -->
     <div style="text-align: center; margin-bottom: 30px;">
-        <h2>Nama: [Annisa Salsabila Santiaji]</h2>
-        <h2>NIM: [23/514506/PA/21990]</h2>
+        <h2>Nama: Annisa Salsabila Santiaji</h2>
+        <h2>NIM: 23/514506/PA/21990</h2>
     </div>
 
     <!-- ========== KOMPONEN 1 ========== -->
     <h3>Komponen 1: &lt;counter-display&gt;</h3>
-    <counter-display id="display1" title="Contoh Judul" value="99"></counter-display>
+    <counter-display title="Lorem Ipsum Title" value="99"></counter-display>
 
     <div style="height: 30px;"></div>
 
     <!-- ========== KOMPONEN 2 ========== -->
     <h3>Komponen 2: &lt;counter-controls&gt;</h3>
-    <counter-controls id="controls1"></counter-controls>
+    <counter-controls></counter-controls>
 
     <div style="height: 30px;"></div>
 
     <!-- ========== KOMPONEN 1 & 2 (Event-based) ========== -->
     <h3>Komponen 1 & 2 (Event Communication)</h3>
-    <counter-display id="display2" title="Contoh Judul" value="99"></counter-display>
+    <counter-display id="display2" title="Lorem Ipsum Title" value="99"></counter-display>
     <counter-controls id="controls2"></counter-controls>
-
-    <script>
-        const display2 = document.getElementById('display2');
-        const controls2 = document.getElementById('controls2');
-        controls2.addEventListener('count-change', e => {
-            display2.count += e.detail.delta;
-        });
-    </script>
 
     <div style="height: 30px;"></div>
 
@@ -52,7 +39,7 @@
 
     <!-- ========== KOMPONEN 1B ========== -->
     <h3>Komponen 1B: &lt;counter-display-b&gt;</h3>
-    <counter-display-b id="display1B" title="Lorem Ipsum Title" value="10"></counter-display-b>
+    <counter-display-b title="Lorem Ipsum Title" value="10"></counter-display-b>
 
     <div style="height: 30px;"></div>
 
@@ -66,6 +53,27 @@
     <h3>Komponen 1B & 2B (Target-based Communication)</h3>
     <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
     <counter-controls-b target="displayB"></counter-controls-b>
+
+    <!-- Load JavaScript di AKHIR body -->
+    <script src="counter-display.js"></script>
+    <script src="counter-controls.js"></script>
+    <script src="combined-counter.js"></script>
+    <script src="counter-display-b.js"></script>
+    <script src="counter-controls-b.js"></script>
+
+    <!-- Script untuk menghubungkan Komponen 1 & 2 -->
+    <script>
+        window.addEventListener('load', () => {
+            const display2 = document.getElementById('display2');
+            const controls2 = document.getElementById('controls2');
+            
+            if (display2 && controls2) {
+                controls2.addEventListener('count-change', e => {
+                    display2.count += e.detail.delta;
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
