@@ -2,9 +2,9 @@ class CounterDisplayB extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.title = this.getAttribute('title') || 'Lorem Ipsum Title';
+        this.title = this.getAttribute('title') || 'Interactive Counter';
         this.value = parseInt(this.getAttribute('value')) || 0;
-        
+
         this.shadowRoot.innerHTML = `
             <style>
                 .display {
@@ -31,12 +31,12 @@ class CounterDisplayB extends HTMLElement {
             </div>
         `;
     }
-    
+
     set count(val) {
         this.value = val;
         this.shadowRoot.querySelector('.number').textContent = val;
     }
-    
+
     get count() {
         return this.value;
     }
