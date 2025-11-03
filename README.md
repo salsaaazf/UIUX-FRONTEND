@@ -1,2 +1,2 @@
-# UIUX-FRONTEND
-Hands-on Web Components UGM
+# webcomponents-demo
+Hands-on Web Components
