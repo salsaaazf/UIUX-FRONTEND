@@ -2,7 +2,7 @@ class CounterDisplay extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.title = this.getAttribute('title') || 'Lorem Ipsum Title';
+        this.title = this.getAttribute('title') || 'Interactive Counter';
         this.value = parseInt(this.getAttribute('value')) || 0;
         
         this.shadowRoot.innerHTML = `
