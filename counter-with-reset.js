@@ -35,9 +35,9 @@ class CounterWithReset extends HTMLElement {
                     display.count += e.detail.delta;
                 });
                 
-                // Handle reset
+                // Handle reset - balik ke 0
                 resetBtn.addEventListener('counter-reset', () => {
-                    display.count = this.initialValue;
+                    display.count = 0;
                 });
             }
         }, 0);
