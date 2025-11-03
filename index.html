@@ -2,53 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter Components Demo</title>
-    
-    <!-- Load semua komponen -->
     <script src="counter-display.js"></script>
     <script src="counter-controls.js"></script>
     <script src="combined-counter.js"></script>
     <script src="counter-display-b.js"></script>
     <script src="counter-controls-b.js"></script>
 </head>
-<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:30px;">
+<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:30px;">
 
-    <!-- NAMA DAN NIM -->
-    <div style="text-align: center; margin-bottom: 20px; border: 2px solid #333; padding: 15px; background-color: #f0f0f0;">
-        <h3>Nama: [ISI NAMA KAMU]</h3>
-        <h3>NIM: [ISI NIM KAMU]</h3>
+    <!-- NAMA DAN NIM - GANTI INI! -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2>Nama: [Annisa Salsabila Santiaji]</h2>
+        <h2>NIM: [23/514506/PA/21990]</h2>
     </div>
 
-    <h1>Web Components Demo</h1>
+    <!-- ========== KOMPONEN 1 ========== -->
+    <h3>Komponen 1: &lt;counter-display&gt;</h3>
+    <counter-display id="display1" title="Contoh Judul" value="99"></counter-display>
 
-    <!-- ========== KOMPONEN 1: Display Only ========== -->
-    <div style="border: 2px dashed #666; padding: 20px; margin: 10px; text-align: center;">
-        <h2>Komponen 1: &lt;counter-display&gt;</h2>
-        <p style="font-size: 0.9rem; color: #555;">Display saja, tanpa tombol kontrol</p>
-        <counter-display id="display1" title="Komponen 1 - Display Only" value="10"></counter-display>
-    </div>
+    <div style="height: 30px;"></div>
 
-    <!-- ========== KOMPONEN 2: Controls Only ========== -->
-    <div style="border: 2px dashed #666; padding: 20px; margin: 10px; text-align: center;">
-        <h2>Komponen 2: &lt;counter-controls&gt;</h2>
-        <p style="font-size: 0.9rem; color: #555;">Tombol kontrol saja, tanpa display</p>
-        <counter-controls id="controls1"></counter-controls>
-        <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">
-            (Tombol ini belum terhubung ke display manapun)
-        </p>
-    </div>
+    <!-- ========== KOMPONEN 2 ========== -->
+    <h3>Komponen 2: &lt;counter-controls&gt;</h3>
+    <counter-controls id="controls1"></counter-controls>
 
-    <!-- ========== KOMPONEN 1 & 2 DIGABUNG (Manual) ========== -->
-    <div style="border: 2px solid #00a; padding: 20px; margin: 10px; text-align: center; background-color: #f0f8ff;">
-        <h2>Komponen 1 & 2 Digabung (Event Communication)</h2>
-        <p style="font-size: 0.9rem; color: #555;">Display dan Control terpisah, tapi terhubung dengan event</p>
-        <counter-display id="display2" title="Counter dengan Event" value="99"></counter-display>
-        <counter-controls id="controls2"></counter-controls>
-    </div>
+    <div style="height: 30px;"></div>
+
+    <!-- ========== KOMPONEN 1 & 2 (Event-based) ========== -->
+    <h3>Komponen 1 & 2 (Event Communication)</h3>
+    <counter-display id="display2" title="Contoh Judul" value="99"></counter-display>
+    <counter-controls id="controls2"></counter-controls>
 
     <script>
-        // Menghubungkan Komponen 1 & 2
         const display2 = document.getElementById('display2');
         const controls2 = document.getElementById('controls2');
         controls2.addEventListener('count-change', e => {
@@ -56,37 +42,30 @@
         });
     </script>
 
-    <!-- ========== KOMPONEN 3: Combined Counter ========== -->
-    <div style="border: 2px solid #0a0; padding: 20px; margin: 10px; text-align: center; background-color: #f0fff0;">
-        <h2>Komponen 3: &lt;combined-counter&gt;</h2>
-        <p style="font-size: 0.9rem; color: #555;">Display dan Control dalam 1 komponen utuh</p>
-        <combined-counter title="Combined Counter" value="50"></combined-counter>
-    </div>
+    <div style="height: 30px;"></div>
 
-    <!-- ========== KOMPONEN 1B: Display B Only ========== -->
-    <div style="border: 2px dashed #a00; padding: 20px; margin: 10px; text-align: center;">
-        <h2>Komponen 1B: &lt;counter-display-b&gt;</h2>
-        <p style="font-size: 0.9rem; color: #555;">Display varian B saja</p>
-        <counter-display-b id="display1B" title="Komponen 1B - Display Only" value="5"></counter-display-b>
-    </div>
+    <!-- ========== KOMPONEN 3 ========== -->
+    <h3>Komponen 3: &lt;combined-counter&gt;</h3>
+    <combined-counter title="Lorem Ipsum Title" value="99"></combined-counter>
 
-    <!-- ========== KOMPONEN 2B: Controls B Only ========== -->
-    <div style="border: 2px dashed #a00; padding: 20px; margin: 10px; text-align: center;">
-        <h2>Komponen 2B: &lt;counter-controls-b&gt;</h2>
-        <p style="font-size: 0.9rem; color: #555;">Tombol kontrol varian B saja</p>
-        <counter-controls-b></counter-controls-b>
-        <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">
-            (Tombol ini belum punya target)
-        </p>
-    </div>
+    <div style="height: 30px;"></div>
 
-    <!-- ========== KOMPONEN 1B & 2B DIGABUNG ========== -->
-    <div style="border: 2px solid #a00; padding: 20px; margin: 10px; text-align: center; background-color: #fff0f0;">
-        <h2>Komponen 1B & 2B Digabung (Target-based Communication)</h2>
-        <p style="font-size: 0.9rem; color: #555;">Display dan Control dihubungkan lewat atribut 'target'</p>
-        <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
-        <counter-controls-b target="displayB"></counter-controls-b>
-    </div>
+    <!-- ========== KOMPONEN 1B ========== -->
+    <h3>Komponen 1B: &lt;counter-display-b&gt;</h3>
+    <counter-display-b id="display1B" title="Lorem Ipsum Title" value="10"></counter-display-b>
+
+    <div style="height: 30px;"></div>
+
+    <!-- ========== KOMPONEN 2B ========== -->
+    <h3>Komponen 2B: &lt;counter-controls-b&gt;</h3>
+    <counter-controls-b></counter-controls-b>
+
+    <div style="height: 30px;"></div>
+
+    <!-- ========== KOMPONEN 1B & 2B (Target-based) ========== -->
+    <h3>Komponen 1B & 2B (Target-based Communication)</h3>
+    <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
+    <counter-controls-b target="displayB"></counter-controls-b>
 
 </body>
 </html>
