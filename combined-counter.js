@@ -2,10 +2,9 @@ class CombinedCounter extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        
-        const title = this.getAttribute('title') || 'Lorem Ipsum Title';
+        const title = this.getAttribute('title') || 'Interactive Counter';
         const value = parseInt(this.getAttribute('value')) || 0;
-        
+
         this.shadowRoot.innerHTML = `
             <style>
                 .wrapper {
@@ -14,26 +13,23 @@ class CombinedCounter extends HTMLElement {
                     width: 180px;
                     font-family: sans-serif;
                 }
+                counter-display {
+                    display: block;
+                }
             </style>
             <div class="wrapper">
-                <counter-display title="${title}" value="${value}"></counter-display>
-                <counter-controls></counter-controls>
+                <counter-display id="display" title="${title}" value="${value}"></counter-display>
+                <counter-controls id="controls"></counter-controls>
             </div>
         `;
     }
-    
+
     connectedCallback() {
-        // Tunggu sebentar biar child elements udah ter-render
-        setTimeout(() => {
-            const display = this.shadowRoot.querySelector('counter-display');
-            const controls = this.shadowRoot.querySelector('counter-controls');
-            
-            if (display && controls) {
-                controls.addEventListener('count-change', e => {
-                    display.count += e.detail.delta;
-                });
-            }
-        }, 0);
+        const display = this.shadowRoot.getElementById('display');
+        const controls = this.shadowRoot.getElementById('controls');
+        controls.addEventListener('count-change', e => {
+            display.count += e.detail.delta;
+        });
     }
 }
 
